@@ -1,0 +1,186 @@
+/*style.css 主样式*/
+body,html{
+	position:fixed;
+	display:flex;
+	
+	width:100vw;
+	height:100vh;
+	padding:0;
+	margin:0;
+	
+	/*font-family:Microsoft YaHei,SimSun;*//*微软雅黑商用需要授权*/
+	background: #dc96b9 url(../img/background/banner-1.png) no-repeat;
+	background-size:cover;
+	z-index:-1122;
+}
+
+/*顶级容器*/
+.father{
+	position:absolute;
+	display:inherit;
+	flex-flow:column nowrap;
+	justify-content:center;
+	align-items:center;
+	
+	width:100%;
+	height:100%;
+	/*font-size:2em;*/
+	
+}
+
+/*--搜索框组--*/
+.search-box{
+	display:inherit;
+	flex-flow:row nowrap;
+	align-items:inherit;
+	justify-content:flex-start;
+	
+	width:50vw;
+	min-width:300px;
+	height:6vh;
+	min-height:40px;
+}
+
+/*搜索输入框*/
+.search-box-text{
+	display:inherit;
+	flex-flow:inherit;
+	justify-content:flex-start;
+	align-items:stretch;
+	
+	width:90%;
+	min-width:220px;
+	height:inherit;
+	min-height:inherit;
+	
+	border-radius: 1.5vh 0 0 1.5vh;
+	background-color: rgba(255,255,255,0.7);
+	
+}
+.search-box-text input{
+	width:100%;
+	/*min-width:inherit;*/
+	
+	background-color:transparent;
+	padding:0 0 0 5px;
+	border:0;
+	font-size:inherit;
+}
+.search-box-text input:focus{/*搜索框获取焦点*/
+	/*background-color:rgba(255,255,255,0.9);*/
+	border:0;
+	outline:0;
+}
+
+/*输入框标签*/
+.search-box-text i{
+	flex:0 0 auto;
+	width:6vh;
+	min-width:40px;
+	height:6vh;
+	min-height:40px;
+	border-radius: inherit;
+	background:url(../img/Baidu.png) no-repeat  center center;
+	background-size:60% 60%;
+	cursor:pointer;
+}
+
+/*搜索按钮*/
+.search-box-tab{
+	display:inherit;
+	flex-flow:inherit;
+	justify-content:inherit;
+	align-items:stretch;
+	
+	width:10%;
+	min-width:60px;
+	height:inherit;
+	min-height:inherit;
+	
+	border-radius: 0 1.5vh 1.5vh 0;
+	background-color: rgba(255,255,255,0.7);
+	cursor:pointer;
+}
+.search-box-tab:hover{/*按钮获取焦点*/
+	background-color: rgba(255,255,255,1);
+}
+.search-box-tab input{
+	flex:0 0 auto;
+	background:url(../img/search.png) no-repeat center center;
+	display:block;
+	height:100%;
+	width:100%;
+	padding:0;
+	border:0;
+	cursor:pointer; 
+}
+
+/*--搜索引擎设置框组--*/
+.engine-box{
+	display:inherit;
+	flex-flow:row nowrap;
+	align-items:flex-start;
+	justify-content:flex-start;
+	
+	width:50vw;
+	min-width:300px;
+	height:6vh;
+	min-height:40px;
+}
+
+/*搜索引擎选择*/
+.search-engine{
+	position:relative;
+	display:none;/*不显示*/
+	flex-flow:column nowrap;
+	justify-content:space-around;
+	align-items:flex-start;
+	
+	width:6vw;
+	min-width:90px;
+	height:20vh;
+	min-height:120px;
+	
+	list-style-type:none;
+	margin:2px 0 0 0;
+	padding:0;
+	
+	background:rgba(255,255,255,0.8);
+	border-radius: 1vh 1vh 1vh 1vh;
+	cursor:pointer;
+}
+.search-engine li{
+	display:flex;
+	flex-flow:row nowrap;
+	justify-content:left;
+	align-items:center;
+	
+	width:inherit;
+	min-width:inherit;
+	height:4vh;
+	min-height:24px;
+}
+.search-engine li:hover{
+	background:pink;
+	color:red;
+}
+.search-engine li:first-child{
+	border-radius: 1vh 1vh 0 0;
+}
+.search-engine li:last-child{
+	border-radius: 0 0 1vh 1vh;
+}
+.search-engine li i{
+	width:5px;
+	min-width:5px;
+}
+.search-engine li img{
+	width:20px;
+	height:20px;
+}
+.search-engine li span{
+	width:3vw;
+	min-width:60px;
+	height:auto;
+	min-height:20px;
+}

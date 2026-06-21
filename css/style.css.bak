@@ -1,0 +1,161 @@
+/*style.css 主样式*/
+body,html{
+	position:fixed;
+	width:100vw;
+	height:100vh;
+	padding:0;
+	margin:0;
+	
+	font-family:SimSun;/**/
+	background: pink url(../img/background/banner-1.png) no-repeat;
+	background-size:cover;
+	z-index:-1122;
+	
+}
+
+/*顶级容器*/
+.father{
+	position:absolute;
+	display:flex;
+	width:100%;
+	height:100%;
+	flex-flow:column nowrap;
+	justify-content:center;
+	padding:0;
+	/*font-size:2em;*/
+	
+}
+
+/*搜索框组*/
+.search-box{
+	
+	height:6vh;
+	min-height:40px;
+	width:inherit;
+	display:inherit;
+	flex-flow:column nowrap;
+	justify-content:inherit;
+}
+
+/*搜索框组容器-第2层*/
+.search-box2{
+	
+	height:inherit;
+	min-height:inherit;
+	width:inherit;
+	min-width:400px;
+	
+	display:inherit;
+	flex-flow:row nowrap;
+	justify-content:inherit;
+}
+
+/*搜索输入框*/
+.search-box-text{
+	display:inherit;
+	flex-flow:inherit;
+	justify-content:flex-start;
+	align-items:stretch;
+	
+	width:44vh;
+	min-width:inherit;
+	height:inherit;
+	min-height:inherit;
+	
+	border-radius: 1.5vh 0 0 1.5vh;
+	background-color: rgba(255,255,255,0.7);
+	
+}
+.search-box-text input{
+	width:100%;
+	/*min-width:inherit;*/
+	
+	background-color:transparent;
+	padding:0 0 0 5px;
+	border:0;
+	font-size:inherit;
+}
+.search-box-text input:focus{/*搜索框获取焦点*/
+	/*background-color:rgba(255,255,255,0.9);*/
+	border:0;
+	outline:0;
+}
+
+/*输入框标签*/
+.search-box-text i{
+	flex:0 0 auto;
+	width:6vh;
+	min-width:40px;
+	height:6vh;
+	min-height:40px;
+	border-radius: inherit;
+	background:url(../img/Baidu.png) no-repeat  center center;
+	background-size:60% 60%;
+	cursor:pointer;
+}
+
+/*搜索按钮*/
+.search-box-tab{
+	display:inherit;
+	flex-flow:row nowrap;
+	justify-content:inherit;
+	align-items:stretch;
+	
+	width:8vh;
+	min-width:60px;
+	height:inherit;
+	min-height:inherit;
+	
+	
+	border-radius: 0 1.5vh 1.5vh 0;
+	background-color: rgba(255,255,255,0.7);
+	cursor:pointer;
+}
+.search-box-tab:hover{/*按钮获取焦点*/
+	background-color: rgba(255,255,255,0.9);
+}
+.search-box-tab input{
+	flex:0 0 auto;
+	background:url(../img/search.png) no-repeat center center;
+	display:block;
+	height:100%;
+	width:100%;
+	padding:0;
+	border:0;
+	cursor:pointer; 
+}
+
+/*搜索引擎选择*/
+.search-engine{
+	display:none;/*不显示*/
+	flex-flow:column nowrap;
+	justify-content:space-around;
+	align-items:flex-start;
+	
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	
+	position:absolute;
+	width:120px;
+	height:150px;
+	background:white;
+	cursor:pointer;
+}
+.search-engine li{
+	display:flex;
+	height:20px;
+	width:100px;
+	padding-left:5px;	
+}
+.search-engine li:hover{
+	background:pink;
+}
+.search-engine li img{
+	width:20px;
+	height:20px;
+}
+.search-engine li span{
+	width:auto;
+	height:20px;
+}
