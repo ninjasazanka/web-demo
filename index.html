@@ -1,63 +1,207 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="Author" content="faintdream@163.com" />
-		<meta name="keywords" content="Illyasviel,伊利亚,home,伊莉雅,魔法少女" />
-		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-		<link href="css/style.css" rel="stylesheet" type="text/css" />
-		<link href="ico/Illyasviel.ico" rel="icon"  type="image/x-icon" />
-		<link href="ico/Illyasviel.ico" rel="shortcut icon"  type="image/x-icon" />
-		<script src="./js/fdlib.js"></script>
-		<script src="./js/main.js"></script>
-		<title>首页...</title>
-	</head>
-	<body>
-		<div class="father" id="father">
-			<div class="search-box" id="search-title"></div>
-			<div class="search-box" id="search-box">
-				
-				<!--输入框-->
-				<div class="search-box-text">
-					<i id="search-tag"></i>
-					<input type="search" id="search-text" name="search-text" placeholder="伊利亚" />
-				</div>
-				
-				<!--按钮-->
-				<div class="search-box-tab">
-					<input type="submit" id="search-submit" name="search-submit" value="" title="搜索" />
-				</div>
-				
-			</div>
-			<div class="engine-box" id="engine-box">
-				<ul class="search-engine" id="search-engine">
-					<li>
-						<i></i><!--无内容，撑起元素-->
-						<img src="./img/Baidu.png" />
-						<span>&nbsp;百度&nbsp;</span>
-					</li>
-					<li>
-						<i></i>
-						<img src="./img/Google.png" />
-						<span>&nbsp;谷歌&nbsp;</span>
-					</li>
-					<li>
-						<i></i>
-						<img src="./img/Sougou.png" />
-						<span>&nbsp;搜狗&nbsp;</span>
-					</li>
-					<li>
-						<i></i>
-						<img src="./img/Bilibili.png" />
-						<span>&nbsp;Bilibili&nbsp;</span>
-					</li>
-					<li>
-						<i></i>
-						<img src="./img/Patchy.png" />
-						<span>&nbsp;Patchy&nbsp;</span>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</body>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP 环境测试</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f0f2f5;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        .card h2 {
+            color: #1a1a2e;
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .success { color: #16a34a; font-weight: bold; }
+        .error { color: #dc2626; font-weight: bold; }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 20px;
+        }
+        .info-grid .label {
+            color: #6b7280;
+            font-weight: 600;
+        }
+        .info-grid .value {
+            color: #1f2937;
+            word-break: break-all;
+        }
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .badge-green { background: #dcfce7; color: #16a34a; }
+        .badge-red { background: #fee2e2; color: #dc2626; }
+        .badge-yellow { background: #fef3c7; color: #d97706; }
+        .ext-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .ext-list span {
+            background: #e5e7eb;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 13px;
+        }
+        .ext-list .enabled { background: #dcfce7; color: #16a34a; }
+        .ext-list .disabled { background: #fee2e2; color: #dc2626; }
+        @media (max-width: 600px) {
+            .info-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align:center; color:#1a1a2e;">🧪 PHP 环境测试</h1>
+    <p style="text-align:center; color:#6b7280;"><?php echo date('Y-m-d H:i:s'); ?></p>
+
+    <!-- ========== 基础信息 ========== -->
+    <div class="card">
+        <h2>📋 基础信息</h2>
+        <div class="info-grid">
+            <span class="label">PHP 版本</span>
+            <span class="value"><strong><?php echo phpversion(); ?></strong></span>
+
+            <span class="label">操作系统</span>
+            <span class="value"><?php echo PHP_OS; ?></span>
+
+            <span class="label">服务器软件</span>
+            <span class="value"><?php echo $_SERVER['SERVER_SOFTWARE'] ?? '未知'; ?></span>
+
+            <span class="label">运行模式</span>
+            <span class="value"><?php echo php_sapi_name(); ?></span>
+
+            <span class="label">最大上传大小</span>
+            <span class="value"><?php echo ini_get('upload_max_filesize'); ?></span>
+
+            <span class="label">最大执行时间</span>
+            <span class="value"><?php echo ini_get('max_execution_time'); ?> 秒</span>
+
+            <span class="label">内存限制</span>
+            <span class="value"><?php echo ini_get('memory_limit'); ?></span>
+
+            <span class="label">时区</span>
+            <span class="value"><?php echo date_default_timezone_get(); ?></span>
+        </div>
+    </div>
+
+    <!-- ========== 扩展检测 ========== -->
+    <div class="card">
+        <h2>🔌 常用扩展检测</h2>
+        <div class="ext-list">
+            <?php
+            $extensions = [
+                'curl' => 'CURL',
+                'json' => 'JSON',
+                'mbstring' => 'MBString',
+                'openssl' => 'OpenSSL',
+                'pdo_mysql' => 'PDO MySQL',
+                'mysqli' => 'MySQLi',
+                'gd' => 'GD (图像)',
+                'zip' => 'Zip',
+                'xml' => 'XML',
+                'sockets' => 'Sockets',
+                'fileinfo' => 'FileInfo',
+                'exif' => 'EXIF',
+            ];
+            foreach ($extensions as $ext => $name):
+                $loaded = extension_loaded($ext);
+                $class = $loaded ? 'enabled' : 'disabled';
+                $label = $loaded ? '✅ ' . $name : '❌ ' . $name;
+            ?>
+                <span class="<?php echo $class; ?>"><?php echo $label; ?></span>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <!-- ========== PHP 信息 ========== -->
+    <div class="card">
+        <h2>📊 PHP 详细信息 (phpinfo)</h2>
+        <details>
+            <summary style="cursor:pointer; color:#4f46e5; font-weight:600;">点击展开查看完整 phpinfo()</summary>
+            <?php phpinfo(); ?>
+        </details>
+    </div>
+
+    <!-- ========== 简单测试 ========== -->
+    <div class="card">
+        <h2>🧪 简单功能测试</h2>
+        <?php
+        $tests = [
+            '日期时间' => date('Y-m-d H:i:s'),
+            '随机数' => rand(1, 100),
+            '字符串长度' => strlen('Hello PHP 测试'),
+            'JSON 编码' => json_encode(['status' => 'ok', 'message' => 'PHP 工作正常']),
+            'MD5 加密' => md5('test123'),
+            '当前文件路径' => __FILE__,
+        ];
+        ?>
+        <ul style="list-style:none; padding:0;">
+            <?php foreach ($tests as $label => $value): ?>
+                <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">
+                    <strong><?php echo $label; ?>：</strong>
+                    <code><?php echo htmlspecialchars((string)$value); ?></code>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+
+    <!-- ========== 执行命令测试（可选，需谨慎） ========== -->
+    <div class="card">
+        <h2>⚠️ 系统命令执行测试</h2>
+        <p style="color:#6b7280; font-size:14px;">
+            此测试用于检查 PHP 能否执行系统命令（通常用于安全审计）。
+        </p>
+        <?php
+        // 测试 exec 是否可用
+        $execDisabled = ini_get('disable_functions');
+        if (strpos($execDisabled, 'exec') !== false || strpos($execDisabled, 'shell_exec') !== false) {
+            echo '<span class="badge badge-yellow">⚠️ exec 函数被禁用</span>';
+            echo '<p style="font-size:14px; color:#6b7280;">当前禁用函数列表：' . htmlspecialchars($execDisabled) . '</p>';
+        } else {
+            $output = [];
+            $returnCode = 0;
+            exec('echo "PHP 可以执行系统命令"', $output, $returnCode);
+            if ($returnCode === 0 && !empty($output)) {
+                echo '<span class="badge badge-green">✅ exec 可用</span>';
+                echo '<pre>' . htmlspecialchars(implode("\n", $output)) . '</pre>';
+            } else {
+                echo '<span class="badge badge-red">❌ exec 执行失败</span>';
+            }
+        }
+        ?>
+    </div>
+
+    <p style="text-align:center; color:#9ca3af; font-size:13px; margin-top:30px;">
+        PHP 版本 <?php echo phpversion(); ?> · 测试完成于 <?php echo date('Y-m-d H:i:s'); ?>
+    </p>
+
+</body>
 </html>
